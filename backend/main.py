@@ -1,6 +1,7 @@
 from __future__ import annotations
 import re
 import threading
+from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -14,6 +15,7 @@ from backend.model.model import ChatRequest, ChatResponse, UploadResponse
 from backend.src.doc_chat.retrieval import ConversationalRAG
 from backend.src.doc_ingest.data_ingest import ChatIngestor
 from backend.utils.model_loader import ModelLoader
+from backend.utils.tracing import build_langfuse_handler, flush_langfuse
 from backend.utils.config_loader import load_config
 from backend.utils.file_io import SUPPORTED_EXTENSIONS
 
@@ -31,8 +33,16 @@ SESSION_ID_PATTERN = re.compile(r"^session_\d{8}_\d{6}_[0-9a-f]{8}$")
 CONFIG = load_config()
 RETRIEVER_CFG = CONFIG.get("retriever", {})
 MODEL_LOADER = ModelLoader()
+LANGFUSE_HANDLER = build_langfuse_handler(MODEL_LOADER.api_key_mgr)
 
-app = FastAPI(title="Document Chat RAG")
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    yield
+    flush_langfuse()
+
+
+app = FastAPI(title="Document Chat RAG", lifespan=lifespan)
 
 # In-memory state: per-session chat history and loaded RAG chains.
 _state_lock = threading.Lock()
@@ -142,7 +152,11 @@ def chat(req: ChatRequest) -> ChatResponse:
         history = list(_histories.get(req.session_id, []))
 
     try:
-        answer = rag.invoke(req.message, chat_history=history)
+        answer = rag.invoke(
+            req.message,
+            chat_history=history,
+            callbacks=[LANGFUSE_HANDLER] if LANGFUSE_HANDLER else [],
+        )
     except DocumentPortalException as e:
         log.error("Chat failed", session_id=req.session_id, error=str(e))
         raise HTTPException(status_code=500, detail="Failed to generate an answer")

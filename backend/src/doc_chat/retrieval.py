@@ -114,7 +114,12 @@ class ConversationalRAG:
             log.error("Failed to load retriever from FAISS", error=str(e))
             raise DocumentPortalException("Loading error in ConversationalRAG", sys)
 
-    def invoke(self, user_input: str, chat_history: Optional[List[BaseMessage]] = None) -> str:
+    def invoke(
+        self,
+        user_input: str,
+        chat_history: Optional[List[BaseMessage]] = None,
+        callbacks: Optional[List[Any]] = None,
+    ) -> str:
         """Invoke the LCEL pipeline."""
         try:
             if self.chain is None:
@@ -123,7 +128,12 @@ class ConversationalRAG:
                 )
             chat_history = chat_history or []
             payload = {"input": user_input, "chat_history": chat_history}
-            answer = self.chain.invoke(payload)
+            config = {
+                "callbacks": callbacks or [],
+                "metadata": {"langfuse_session_id": self.session_id},
+            }
+            answer = self.chain.invoke(payload, config=config)
+
             if not answer:
                 log.warning(
                     "No answer generated", user_input=user_input, session_id=self.session_id

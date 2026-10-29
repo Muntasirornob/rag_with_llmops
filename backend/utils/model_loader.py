@@ -13,7 +13,7 @@ from backend.exception.custom_exception import DocumentPortalException
 
 class ApiKeyManager:
     REQUIRED_KEYS = ["OPENAI_API_KEY"]  # default embeddings and LLM provider
-    OPTIONAL_KEYS = ["GOOGLE_API_KEY", "GROQ_API_KEY"]
+    OPTIONAL_KEYS = ["GOOGLE_API_KEY", "GROQ_API_KEY", "LANGFUSE_PUBLIC_KEY", "LANGFUSE_SECRET_KEY", "LANGFUSE_HOST"]
 
     def __init__(self):
         self.api_keys = {}
