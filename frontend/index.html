@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Chat</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h1>Document Chat</h1>
+
+      <form id="upload-form">
+        <label for="file-input" class="file-label">Choose documents</label>
+        <input id="file-input" type="file" multiple accept=".pdf,.docx,.txt,.md,.csv" />
+        <p class="hint">PDF, DOCX, TXT, MD, CSV. Max 20 MB per file, 10 files.</p>
+        <button id="upload-btn" type="submit" disabled>Upload &amp; index</button>
+      </form>
+
+      <div class="session">
+        <span class="label">Session</span>
+        <code id="session-id">none</code>
+        <button id="new-session-btn" type="button" class="secondary">New session</button>
+      </div>
+
+      <p id="status" class="status" role="status"></p>
+    </aside>
+
+    <main class="chat">
+      <div id="messages" class="messages" aria-live="polite">
+        <div class="empty">Upload a document, then ask a question about it.</div>
+      </div>
+
+      <form id="chat-form" class="composer">
+        <textarea id="message-input" rows="1" placeholder="Ask about your documents..." disabled></textarea>
+        <button id="send-btn" type="submit" disabled>Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
