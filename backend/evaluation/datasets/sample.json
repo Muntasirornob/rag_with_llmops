@@ -1,0 +1,18 @@
+[
+  {
+    "_note": "DRAFT. Replace with questions about YOUR uploaded document. Review every reference before trusting scores.",
+    "question": "What does the document say about <topic>?",
+    "reference": "The document states that <expected answer in your own words>.",
+    "reference_contexts": [
+      "<exact passage copied from the uploaded document that supports the reference answer>"
+    ]
+  },
+  {
+    "_note": "DRAFT. Add one entry per question. Use the same session's documents for every entry.",
+    "question": "What is the main requirement described in section <N>?",
+    "reference": "Section <N> requires <expected answer in your own words>.",
+    "reference_contexts": [
+      "<exact passage copied from section <N> of the uploaded document>"
+    ]
+  }
+]

@@ -17,3 +17,7 @@ logs/
 # runtime data (uploads and FAISS indexes)
 data/
 faiss_index/
+
+
+# Evaluation results
+backend/evaluation/results/

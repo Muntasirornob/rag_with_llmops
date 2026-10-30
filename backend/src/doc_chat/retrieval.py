@@ -43,6 +43,8 @@ class ConversationalRAG:
             # Lazy pieces
             self.retriever = retriever
             self.chain = None
+            self.question_rewriter = None
+            self.answer_chain = None
             if self.retriever is not None:
                 self._build_lcel_chain()
 
@@ -160,6 +162,38 @@ class ConversationalRAG:
             log.error("Failed to invoke ConversationalRAG", error=str(e))
             raise DocumentPortalException("Invocation error in ConversationalRAG", sys)
 
+    def invoke_with_contexts(
+        self,
+        user_input: str,
+        chat_history: Optional[List[BaseMessage]] = None,
+    ) -> tuple[str, List[str]]:
+        """
+        Same pipeline as invoke(), but also returns the retrieved chunk texts.
+        Used by offline evaluation; production /chat keeps using invoke().
+        """
+        try:
+            if self.chain is None:
+                raise DocumentPortalException(
+                    "RAG chain not initialized. Call load_retriever_from_faiss() before invoke_with_contexts().", sys
+                )
+            chat_history = chat_history or []
+            docs = (self.question_rewriter | self.retriever).invoke(
+                {"input": user_input, "chat_history": chat_history}
+            )
+            answer = self.answer_chain.invoke(
+                {
+                    "context": self._format_docs(docs),
+                    "input": user_input,
+                    "chat_history": chat_history,
+                }
+            )
+            return str(answer)[:4096], [d.page_content for d in docs]
+        except DocumentPortalException:
+            raise
+        except Exception as e:
+            log.error("Failed to invoke ConversationalRAG with contexts", error=str(e))
+            raise DocumentPortalException("Invocation error in ConversationalRAG", sys)
+
     # ---------- Internals ----------
 
     def _load_llm(self):
@@ -183,26 +217,33 @@ class ConversationalRAG:
                 raise DocumentPortalException("No retriever set before building chain", sys)
 
             # 1) Rewrite user question with chat history context
-            question_rewriter = (
+            self.question_rewriter = (
                 {"input": itemgetter("input"), "chat_history": itemgetter("chat_history")}
                 | self.contextualize_prompt
                 | self.llm
                 | StrOutputParser()
             )
 
-            # 2) Retrieve docs for rewritten question
-            retrieve_docs = question_rewriter | self.retriever | self._format_docs
-
-            # 3) Answer using retrieved context + original input + chat history
-            self.chain = (
+            # 2) Answer using retrieved context + original input + chat history
+            self.answer_chain = (
                 {
-                    "context": retrieve_docs,
+                    "context": itemgetter("context"),
                     "input": itemgetter("input"),
                     "chat_history": itemgetter("chat_history"),
                 }
                 | self.qa_prompt
                 | self.llm
                 | StrOutputParser()
+            )
+
+            # 3) Full pipeline: rewrite -> retrieve -> answer
+            self.chain = (
+                {
+                    "context": self.question_rewriter | self.retriever | self._format_docs,
+                    "input": itemgetter("input"),
+                    "chat_history": itemgetter("chat_history"),
+                }
+                | self.answer_chain
             )
 
             log.info("LCEL graph built successfully", session_id=self.session_id)

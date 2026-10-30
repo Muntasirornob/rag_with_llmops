@@ -26,3 +26,8 @@ llm:
     model_name: "gpt-4o-mini"
     temperature: 0
     max_output_tokens: 2048
+
+  # Ragas judge models. Separate from the production `llm` block above.
+evaluation:
+  llm_model_name: "gpt-4o-mini"
+  embedding_model_name: "text-embedding-3-small"

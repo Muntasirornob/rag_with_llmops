@@ -1,0 +1,116 @@
+[
+  {
+    "question": "How does the document recommend answering abstract interview questions about character and knowledge?",
+    "reference": "The document recommends using hypotheticals, often with 'would', to explain ideas. Answers should still include clear details and present the candidate positively without sounding arrogant.",
+    "reference_contexts": [
+      "Giving examples from the past may be a little more difficult for these questions since they are a bit more abstract. Hypotheticals are powerful for many of these questions. That means, using 'would' to explain ideas. Remember to still give clear details, and show your best side without showing arrogance."
+    ]
+  },
+  {
+    "question": "How should a candidate answer the question, 'What would your previous employers say about you?'",
+    "reference": "The candidate should explain how they think previous employers would describe them, then support that description with a specific example from their work experience.",
+    "reference_contexts": [
+      "You can mix hypotheticals and past examples in this answer. Say exactly how you feel previous employers would talk about you, then give a specific example from your previous working experience."
+    ]
+  },
+  {
+    "question": "What does the document suggest focusing on when answering, 'Where do you see yourself in 5 years?'",
+    "reference": "It suggests describing a vision that is ambitious but achievable, and ideally one that could include remaining with the company. The answer can be somewhat vague and less detailed.",
+    "reference_contexts": [
+      "This question is highly subjective and certainly hypothetical. Focus on something ambitious yet achievable. In this answer, it's OK to be vague and less detailed. Generally, it's a good idea to ensure that the vision you have for yourself suggests that you could still be with this company."
+    ]
+  },
+  {
+    "question": "What research should a candidate do before answering, 'Tell me something about this company?'",
+    "reference": "The candidate should research the company's culture, philosophy, and other specific details, then connect their own goals to the company's goals.",
+    "reference_contexts": [
+      "Rely on your research. You should know about the culture of the company, the philosophy, and some other specifics. It's a good idea to connect your own goals to the goals of the company."
+    ]
+  },
+  {
+    "question": "According to the document, what makes a team effective?",
+    "reference": "An effective team combines individual skill sets, assigns goal-oriented tasks that use each person's strengths without unnecessary overlap, keeps the overall goal in view, and maintains open communication.",
+    "reference_contexts": [
+      "Here's my view of teamwork. A good team is a single unit made up of individual skill sets that, if organized correctly, allow for targets to be achieved more quickly and effectively than if each person were working in isolation.",
+      "To best utilize individual strengths, it's important to assign each team member goal-oriented tasks, but also to make sure that those tasks don't overlap, and that they, together, move the ball forward. The big picture has to be at the forefront. Open channels of communication are also essential."
+    ]
+  },
+  {
+    "question": "How does the document recommend responding to, 'Is there any kind of person you can't work with?'",
+    "reference": "Rather than naming a type of person, the candidate should discuss counterproductive or abrasive characteristics, focus on the behaviour rather than personal unwillingness, and try to include a positive characteristic about themselves.",
+    "reference_contexts": [
+      "Rather than focusing on a particular kind of person you refuse to work with, discuss characteristics that you find counterproductive or abrasive. Focus on the characteristics rather than your own unwillingness. If you can, show a positive characteristic about yourself within the answer."
+    ]
+  },
+  {
+    "question": "What should a candidate emphasize when explaining why they are a good fit for a company?",
+    "reference": "The candidate should connect their own goals and values with the company's culture and values, and explain how their skills and interests align with the company's direction.",
+    "reference_contexts": [
+      "This question can also reflect your knowledge of the company's culture or values, which makes research very important. Focus on how your own goals align with those of the company you're applying to. You may also focus on shared values."
+    ]
+  },
+  {
+    "question": "How should a candidate approach the interview question, 'What motivates you?'",
+    "reference": "The candidate should describe a genuine passion or sense of purpose and provide details that demonstrate positive personal qualities, ideally with an example of work that made a contribution.",
+    "reference_contexts": [
+      "This answer is a chance for you to talk about your passion. Give details that reflect your positive characteristics.",
+      "I am driven by a strong feeling that I should do something important in the world, or make some kind of contribution. That sounds quite abstract, but I believe small actions can lead to profound consequences down the road."
+    ]
+  },
+  {
+    "question": "What does the document say a candidate should include when discussing mentors?",
+    "reference": "The candidate should discuss one or two mentors and clearly explain why they have been important. A mentor may be someone the candidate knows or knew, or potentially someone they deeply admire.",
+    "reference_contexts": [
+      "For this answer, don't just say yes. Talk about one or two of your mentors and be sure to explain in clear detail why they have been so important to you. Generally, this should be someone you know or knew in the past, but could potentially be a person you deeply admire."
+    ]
+  },
+  {
+    "question": "What strategies does the document give for handling work pressure?",
+    "reference": "It recommends keeping the big picture in mind, taking a short break to regain perspective when appropriate, and breaking a large task into smaller, manageable pieces.",
+    "reference_contexts": [
+      "My way of dealing with pressure is to keep the big picture in mind. If something unexpected happens, or I am given a sudden challenge that seems beyond my ability to handle, I start by taking a 5-minute break. I go to the window and focus on putting things into perspective.",
+      "Another strategy is to fragment tasks into manageable pieces. By focusing on each task, the whole thing doesn't seem so scary."
+    ]
+  },
+  {
+    "question": "How should a candidate talk about what past coworkers might say about them?",
+    "reference": "The document advises speaking hypothetically and avoiding absolute certainty. The candidate can describe how coworkers might see them while giving a balanced picture of their personality and approach to work.",
+    "reference_contexts": [
+      "Remember to speak hypothetically and without total confidence (I think they might say...). Expressing their views absolutely can come across as arrogant and somewhat reckless."
+    ]
+  },
+  {
+    "question": "How does the document recommend answering, 'What makes you uncomfortable?'",
+    "reference": "It recommends being honest but choosing a minor issue that does not make the candidate less attractive. The example describes feeling uncomfortable when expectations or evaluation criteria are unclear.",
+    "reference_contexts": [
+      "For this question, be honest but it's not a good idea to say something that makes you less attractive as a candidate. Say something minor.",
+      "In fact, I feel somewhat uncomfortable when I'm not sure what is expected of me. It's not that I fear uncertainty, it's that I always want to do quality work, and when I am not sure the criteria by which my work will be measured, it's hard for me to properly set goals and make sure I am moving in the right direction."
+    ]
+  },
+  {
+    "question": "What does the document say about choosing which hobbies to mention in an interview?",
+    "reference": "It suggests that hobbies communicate something about a person's character and that it may be useful to discuss two hobbies that demonstrate different characteristics.",
+    "reference_contexts": [
+      "Your hobbies suggest a lot about what kind of person you are. If you are adventurous and love the outdoors, that's one thing. If you enjoy staying at home and reading, that's another. It may be a good idea to talk about two hobbies which show different characteristics about yourself."
+    ]
+  },
+  {
+    "question": "How should someone deal with a furious customer, according to the example in the document?",
+    "reference": "They should remain calm, ask questions instead of arguing, allow the customer to explain the issue, show genuine concern, and then work toward a solution once the customer has calmed down.",
+    "reference_contexts": [
+      "If a furious customer were shouting at me, for whatever reason, I would ask questions rather than arguing. Arguments lead to more conflict, and things just escalate. That doesn't work. I would remain calm and just keep the questions coming. By doing that, I'd allow the customer to get it out of their system, and at the same time, I'd be showing them my genuine concern for their issue. Once it's all out in the open, and they have calmed down somewhat, we can start working on solutions."
+    ]
+  },
+  {
+    "question": "What hypothetical interview situations does the document list for practice?",
+    "reference": "The document lists resolving a conflict between colleagues, being blamed for something that was not one's fault, being asked by a boss to do something considered wrong, receiving a task outside one's skill set, managing a frequently late team member, and discovering unethical behaviour by a teammate.",
+    "reference_contexts": [
+      "How would you resolve a conflict between colleagues?",
+      "What would you do if you were blamed for something that wasn't your fault?",
+      "What would you do if you were asked to do something by your boss that you thought was wrong?",
+      "How would you react if you were given a task that didn't fall within your skillset or experience?",
+      "If you were the manager of a team and one of your team members was often late, what would you do?",
+      "If you discovered somebody in your team doing something unethical, what would you do?"
+    ]
+  }
+]
